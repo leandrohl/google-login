@@ -1,22 +1,18 @@
-import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { useAuth } from '../contexts';
-import Home from '../pages/Home';
-import Login from '../pages/Login';
-import { ProtectedRoute } from './ProtectedRoute';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Login from '../pages/Login'
 
 const RoutesDom: React.FC = () => {
-
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      {/* <Route path="*" element={<h1>Página não encontrada</h1>} /> */}
+      <Route path="*" element={<h1>Página não encontrada</h1>} />
 
       {/* <ProtectedRoute>
         <Route path="/" element={<Home />} />
       </ProtectedRoute> */}
     </Routes>
-  );
+  )
 }
 
-export default RoutesDom;
+export default RoutesDom

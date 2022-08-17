@@ -1,13 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import * as S from './styles';
+import * as S from './styles'
 
 const Login: React.FC = () => {
-  return (
-    <S.Container>
-      DSADAgfgd
-    </S.Container>
-  );
+  return <S.Container>DSADAgfgd</S.Container>
 }
 
-export default Login;
+export default Login
