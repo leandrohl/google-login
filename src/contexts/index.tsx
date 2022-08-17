@@ -18,9 +18,6 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const navigate = useNavigate()
 
   const localStorage = new LocalStorage()
-
-  console.log(user)
-
   useEffect(() => {
     const user = localStorage.getLocalStorage<IUser>(KEY_USER)
     if (user != null) {
