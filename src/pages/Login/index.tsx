@@ -20,6 +20,7 @@ const Login: React.FC = () => {
           <Input
             label="Email"
             name="email"
+            type='text'
             onChange={(e) =>
               setLoginForm({ ...loginForm, email: e.target.value })
             }
@@ -31,6 +32,7 @@ const Login: React.FC = () => {
           <Input
             label="Password"
             name="password"
+            type="password"
             onChange={(e) =>
               setLoginForm({ ...loginForm, password: e.target.value })
             }
@@ -39,7 +41,7 @@ const Login: React.FC = () => {
             errorText={loginForm.error.password}
             fullWidth
           />
-          {/* <S.ForgetPassword> Forgot password ? </S.ForgetPassword> */}
+          <a href="/"> Forgot password ? </a>
           <Button
             loading={loading}
             variant='filled'
@@ -50,11 +52,12 @@ const Login: React.FC = () => {
         <S.Footer>
           <Button
             loading={loading}
+            variant='standard'
           >
             <FcGoogle size={24} />
-            Sign in with Google
+            <p>Sign in with Google</p>
           </Button>
-          <span> New Lovebirds? <a>Create Account</a></span>
+          <span> New Lovebirds? <a href="/">Create Account</a></span>
         </S.Footer>
       </S.Content>
       <S.Carousel></S.Carousel>

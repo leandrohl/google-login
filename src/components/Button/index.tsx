@@ -5,12 +5,21 @@ import { IButtonProps } from './types'
 
 const Button: React.FC<PropsWithChildren<IButtonProps>> = ({ children, onClick, loading, variant }) => {
   return (
-    <S.ButtonStyled
-      onClick={onClick}
-      variant={variant}
-    >
-      {loading ? <span> Loading </span> : children}
-    </S.ButtonStyled>
+    variant === 'filled'
+      ? (
+        <S.ButtonStyledFilled
+          onClick={onClick}
+        >
+          {loading ? <span> Loading </span> : children}
+        </S.ButtonStyledFilled>
+      )
+      : (
+        <S.ButtonStyledStandard
+          onClick={onClick}
+        >
+          {loading ? <span> Loading </span> : children}
+        </S.ButtonStyledStandard>
+      )
   )
 }
 

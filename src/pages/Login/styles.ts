@@ -33,6 +33,14 @@ export const Form = styled.div`
     margin-top: 16px;
     width: max-content;
   }
+
+  > a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.primary};
+    font-size: 12px;
+    text-align: right;
+    width: 100%;
+  }
 `
 
 export const Footer = styled.div`
@@ -40,8 +48,17 @@ export const Footer = styled.div`
   flex-direction: column;
 
   > button {
-
     margin-bottom: 32px;
+
+    > p {
+      padding-left: 8px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.primary};
+    border-bottom: 1px dotted ${({ theme }) => theme.primary};
   }
 `
 
