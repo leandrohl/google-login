@@ -1,39 +1,50 @@
-import React, { createContext, useContext, useState, PropsWithChildren, useEffect  } from "react";
-import { useNavigate } from "react-router-dom";
-import { KEY_USER } from "../config/constants";
-import LocalStorage from "../utils/localStorage";
-import { IAuthContext, IUser } from "./types";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  PropsWithChildren,
+  useEffect
+} from 'react'
+import { useNavigate } from 'react-router-dom'
+import { KEY_USER } from '../config/constants'
+import LocalStorage from '../utils/localStorage'
+import { IAuthContext, IUser } from './types'
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 const AuthContext = createContext<IAuthContext>({} as IAuthContext)
 
-export const AuthProvider: React.FC<PropsWithChildren>  = ({ children }) => {
+export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<IUser | null>(null)
   const navigate = useNavigate()
 
+  const localStorage = new LocalStorage()
+
   useEffect(() => {
-    const user = LocalStorage.getLocalStorage<IUser>(KEY_USER)
-    if (user) {
+    const user = localStorage.getLocalStorage<IUser>(KEY_USER)
+    if (user != null) {
       setUser(user)
     }
   }, [])
 
-  const signIn = (data: IUser) => {
+  const signIn = (data: IUser): void => {
     setUser(data)
-    navigate("/")
+    navigate('/')
   }
 
-  const logout = () => {
+  const logout = (): void => {
     setUser(null)
-    LocalStorage.removeItemLocalStorage(KEY_USER)
-    navigate("/login")
+    localStorage.removeItemLocalStorage(KEY_USER)
+    navigate('/login')
   }
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      signIn,
-      logout
-    }}> 
+    <AuthContext.Provider
+      value={{
+        user,
+        signIn,
+        logout
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )

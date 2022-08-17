@@ -13,6 +13,21 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "@typescript-eslint/indent": ["error", 2],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "only-multiline",
+        "imports": "only-multiline",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "space-before-function-paren": "error",
+    "no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": "warn"
   }
 }
