@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-// import Home from '../pages/Home'
+import Home from '../pages/Home'
 import Login from '../pages/Login'
-// import { ProtectedRoute } from './ProtectedRoute'
+import { ProtectedRoute } from './ProtectedRoute'
 
 const RoutesDom: React.FC = () => {
   return (
@@ -10,9 +10,12 @@ const RoutesDom: React.FC = () => {
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<h1>Página não encontrada</h1>} />
 
-      {/* <ProtectedRoute>
-        <Route path="/" element={<Home />} />
-      </ProtectedRoute> */}
+      <Route path="/" element={
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      }
+      />
     </Routes>
   )
 }

@@ -4,11 +4,7 @@ import { useAuth } from '../../contexts'
 
 // import { Container } from './styles';
 
-export const ProtectedRoute = ({
-  children
-}: {
-  children: JSX.Element
-}): JSX.Element => {
+export const ProtectedRoute = ({ children }: {children: JSX.Element}): JSX.Element => {
   const { user } = useAuth()
   if (user === null) {
     return <Navigate to="/login" replace />
